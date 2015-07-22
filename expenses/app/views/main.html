@@ -1,0 +1,53 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+  </ul>
+  <h3 class="text-muted">Expenses</h3>
+</div>
+
+<div class="content">
+  <div ng-repeat="item in items">
+    <div class="clearfix">
+      <div class="pull-left">{{ item.key }}</div>
+      <div class="pull-right">{{ item.value }}</div>
+    </div>
+  </div>
+  <form class="form-inline" role="form" novalidate ng-submit="processForm()" name="form">
+    <div class="row">
+      <div class="form-group">
+        <label class="sr-only" for="item-name">Your item</label>
+        <input
+          class="form-control"
+          ng-model="name"
+          id="item-name"
+          name="item-name"
+          placeholder="Your item"
+          required
+          />
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="item-price">Price</label>
+        <input
+          class="form-control"
+          ng-model="price"
+          id="item-price"
+          name="item-price"
+          placeholder="Price"
+          required
+          ng-pattern="/\d+\.\d\d$/"/>
+      </div>
+    </div>
+    <div class="status">
+      {{ status }}
+    </div>
+    <div class="row">
+      <button
+        class="btn btn-primary pull-right"
+        type="submit"
+        ng-disabled="form.$invalid">Save</button>
+    </div>
+  </form>
+</div>
+
+<div class="footer">
+
+</div>
